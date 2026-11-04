@@ -1,0 +1,309 @@
+
+    🌙 Mode sombre
+
+</button>
+<section id="profile-page" class="hidden">
+
+    <h2>Mon profil étudiant</h2>
+
+    <form id="profile-form">
+
+        <label>Nom</label>
+        <input id="profile-lastname" type="text" required>
+
+        <label>Prénom</label>
+        <input id="profile-firstname" type="text" required>
+
+        <label>Matricule</label>
+        <input id="profile-matricule" type="text">
+
+        <label>Université</label>
+        <input id="profile-university" type="text">
+
+        <label>Filière</label>
+        <input id="profile-field" type="text">
+
+        <label>Niveau</label>
+        <select id="profile-level">
+            <option value="Licence 1">Licence 1</option>
+            <option value="Licence 2">Licence 2</option>
+            <option value="Licence 3">Licence 3</option>
+            <option value="Master 1">Master 1</option>
+            <option value="Master 2">Master 2</option>
+        </select>
+
+        <label>Année universitaire</label>
+        <input id="profile-year" type="text"
+               placeholder="2026-2027">
+
+        <button type="submit">Enregistrer mon profil</button>
+
+    </form>
+
+</section>
+
+
+<section id="notes-page" class="page hidden">
+
+    <div class="section-heading">
+        <h2>Mes unités d'enseignement</h2>
+        <p>Organise tes matières et suis leur validation.</p>
+    </div>
+
+<section id="student-analytics" class="analytics-section">
+
+    <div class="analytics-heading">
+        <h2>Student Hub Analytics</h2>
+        <p>Analyse de tes performances académiques</p>
+    </div>
+
+    <div class="analytics-grid">
+
+        <div class="analytics-card">
+            <span>Moyenne générale</span>
+            <strong id="analytics-average">-- / 20</strong>
+        </div>
+
+        <div class="analytics-card">
+            <span>UE validées</span>
+            <strong id="analytics-validated">0</strong>
+        </div>
+
+        <div class="analytics-card">
+            <span>Crédits acquis</span>
+            <strong id="analytics-credits">0</strong>
+        </div>
+
+        <div class="analytics-card">
+            <span>Taux de validation</span>
+            <strong id="analytics-rate">0 %</strong>
+        </div>
+
+    </div>
+
+    <h3>Performances semestrielles</h3>
+
+    <div id="analytics-semesters"></div>
+
+</section>
+
+    <!-- STATISTIQUES -->
+    <div class="grade-summary">
+
+        <article class="grade-card">
+            <span>UE validées</span>
+            <h3 id="validated-count">0</h3>
+        </article>
+
+        <article class="grade-card">
+            <span>Total des UE</span>
+            <h3 id="ue-count">0</h3>
+        </article>
+
+        <article class="grade-card">
+            <span>Moyenne générale</span>
+            <h3 id="overall-average">-- / 20</h3>
+        </article>
+
+    </div>
+
+    <!-- CREATION UE -->
+<form id="ue-form" class="grade-form">
+
+    <div>
+        <label for="ue-name">Nom de l'UE</label>
+        <input id="ue-name" type="text"
+            placeholder="Ex : Sciences politiques" required>
+    </div>
+
+    <div>
+        <label for="ue-semester">Semestre</label>
+        <select id="ue-semester" required>
+            <option value="">Choisir un semestre</option>
+            <option value="S1">Semestre 1 (S1)</option>
+            <option value="S2">Semestre 2 (S2)</option>
+        </select>
+    </div>
+<div>
+    <label for="ue-credits">Nombre de crédits</label>
+    <input
+        id="ue-credits"
+        type="number"
+        min="0"
+        max="60"
+        placeholder="Ex : 6"
+        required
+    >
+</div>
+    <button type="submit">+ Créer l'UE</button>
+
+</form>
+
+
+    <!-- AJOUT MATIERE -->
+    <div class="panel grade-panel">
+
+        <div class="panel-heading">
+            <div>
+                <h2>Ajouter une matière</h2>
+                <p>Associe chaque matière à son UE.</p>
+            </div>
+        </div>
+
+        <form id="subject-form" class="grade-form">
+
+            <div>
+                <label for="subject-ue">Unité d'enseignement</label>
+                <select id="subject-ue" required>
+                    <option value="">Choisir une UE</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="subject-name">Matière</label>
+                <input id="subject-name" type="text"
+                    placeholder="Nom de la matière" required>
+            </div>
+
+            <div>
+                <label for="subject-grade">Note / 20</label>
+                <input id="subject-grade" type="number"
+                    min="0" max="20" step="0.01"
+                    placeholder="Ex : 15" required>
+            </div>
+
+            <button type="submit">+ Ajouter</button>
+
+        </form>
+
+    </div>
+
+    <!-- LISTE DES UE -->
+    <div class="section-heading">
+        <h2>Mes résultats par UE</h2>
+        <p>La compensation est calculée séparément dans chaque UE.</p>
+    </div>
+
+<div class="search-container">
+    <input
+        type="search"
+        id="ue-search"
+        placeholder="Rechercher une UE ou une matière..."
+        autocomplete="off"
+    >
+    <span id="search-count"></span>
+</div>
+
+    <div id="ue-list" class="ue-list">
+
+        <div class="panel">
+            <p class="empty">Aucune UE enregistrée.</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION SAUVEGARDE -->
+
+<section class="backup-section">
+
+    <h2>💾 Sauvegarde et restauration</h2>
+
+    <p>
+        Protégez vos données universitaires.
+        Exportez ou restaurez votre progression à tout moment.
+    </p>
+
+    <div class="backup-card">
+
+        <h3>📥 Exporter mes données</h3>
+
+        <p>
+            Téléchargez une copie de vos UE,
+            matières, notes et informations.
+        </p>
+
+        <button onclick="exporterSauvegarde()">
+            Télécharger ma sauvegarde
+        </button>
+
+    </div>
+
+    <div class="backup-card">
+
+        <h3>📤 Restaurer mes données</h3>
+
+        <p>
+            Importez un fichier de sauvegarde Student Hub.
+        </p>
+
+        <input
+            type="file"
+            id="fichierSauvegarde"
+            accept=".json,application/json"
+        >
+
+        <button onclick="
+            const fichier = document.getElementById('fichierSauvegarde').files[0];
+            if (fichier) importerSauvegarde(fichier);
+            else alert('Veuillez sélectionner un fichier.');
+        ">
+            Restaurer mes données
+        </button>
+
+    </div>
+
+</section>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Hub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json">
+
+    <meta name="theme-color" content="#172554">
+
+    <link rel="icon"
+          type="image/png"
+          href="./icon-192.png">
+
+</head>
+
+<body>
+
+    <!-- TOUT LE CONTENU DE STUDENT HUB -->
+    <!-- Navigation -->
+    <!-- Profil étudiant -->
+    <!-- Gestion des UE -->
+    <!-- Gestion des matières -->
+    <!-- Analytics -->
+    <!-- Bulletin -->
+    <!-- Sauvegarde -->
+
+    <!-- JAVASCRIPT -->
+    <script src="./script.js"></script>
+
+    <!-- SERVICE WORKER -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register(
+                    "./service-worker.js"
+                );
+            });
+        }
+    </script>
+
+</body>
+</html>
+
